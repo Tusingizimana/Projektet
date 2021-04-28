@@ -11,12 +11,28 @@
 # Mastermind game 
 import random 
 
-def correctguess(answer):
-  return 3
+def showhelp ():
+ print ('''To win the game you have to have less than 4 guesses.
+ If you have played 4 times and still haven´t found out which  is the correct code,  
+ You will be asked if you want to continue or lose the game
+ If you choose to continue, you are given 2 more chances or else the compture wins by showing the correct code.''')
+
+
+  
   
 print("Welcome to mastermind")
-#Code=random.randint(1,6)
-code= "2354"
+answer=input("do you want to see the meny instructions first (y/n)? ")
+if answer=='y':
+ showhelp()
+ 
+ 
+code="" 
+
+for k in range ( 0,4):
+ code+=str (random.randint(1,6))
+ 
+
+
 
 print ("I have a code with four digits between 1 and 6")
 
@@ -31,18 +47,15 @@ while answer !=code:
     
     if answer[index]== code[index]:
       lista[index]= "+"
-      print(lista)
+      
     else:
       for tecken in code:
-        print( tecken)
         
-        print(answer[index])
-        ''' when the guessed answer has index that are found in the code but not the correct positiion,
-            then I print "-" '''
+     
         
         if answer[index]== tecken:
           lista[index] = "-"
-          print(lista)
+  print(lista)
   
   answer=input("what is your guess: ") 
   
